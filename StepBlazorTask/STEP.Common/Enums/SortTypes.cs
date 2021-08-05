@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace STEP.Common.Enums
 {
-    public enum InvoicesSortKeys
+    public enum SortTypes
     {
-        ByName,
-        ByDate,
-        ByVendor,
-        ByAgency,
-        ByBU,
-        ByAmount,
-        ByStatus
+        Ascending,
+        Descending
     }
-
-    
 }

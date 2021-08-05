@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "UTV0ABpJPNXtG9cXjnPUAjGFOBooaIhsE3ZtgbhTAH27e95KH8mv0O0lo9N+9A04sgWlp96SI7T+f3EUyNtDhA==",
+  "dgSpecHash": "AwroCXw+h78OYywEJmIH+CdRXsIi12CVxDuaseEeF8js64uVdG+cESJaMcfydLCYxVZa8Q+MAm0uUY+y46yn0Q==",
   "success": true,
   "projectFilePath": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.Common\\STEP.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Ibrahim\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

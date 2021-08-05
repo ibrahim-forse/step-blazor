@@ -35,5 +35,7 @@ namespace STEP.Core.Models
         public bool IsDeletable { get; set; }
         public string LatestClientComment { get; set; }
         public string LatestVendorComment { get; set; }
+        public string Vendor { get; set; }
+        public string AgencyName { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using STEP.Core.Models;
+﻿using STEP.Common.Enums;
+using STEP.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace STEP.DataAccess.Interfaces
 {
     public interface IBillingService
     {
-        public List<Bill> GetBillingsByPage(int page, int pageSize);
+        Tuple<List<Bill>, int> GetBillingsByPage(int page, int pageSize);
+        Tuple<List<Bill>, int> SortBillingByPeriod(SortTypes sortType, int page, int pageSize);
     }
 }
