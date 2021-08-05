@@ -11,7 +11,7 @@ namespace STEP.DataAccess.Interfaces
     public interface IInvoicesService
     {
         Tuple<List<Invoice>,int> GetInvoicesByPage(int page, int pageSize);
-        Tuple<List<Invoice>, int> SortInvoicesByKeys(InvoicesSortKeys sortBy, InvoicesSortType sortType, int page, int pageSize);
+        Tuple<List<Invoice>, int> SortInvoicesByKeys(InvoicesSortKeys sortBy, SortTypes sortType, int page, int pageSize);
         Tuple<List<Invoice>, int> SearchInvoicesByNumber(string searchKey, int page, int pageSize);
     }
 }
