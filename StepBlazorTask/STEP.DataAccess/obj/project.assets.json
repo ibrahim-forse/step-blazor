@@ -1,0 +1,109 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "STEP.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/STEP.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.Common.dll": {}
+        }
+      },
+      "STEP.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/STEP.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "STEP.Common/1.0.0": {
+      "type": "project",
+      "path": "../STEP.Common/STEP.Common.csproj",
+      "msbuildProject": "../STEP.Common/STEP.Common.csproj"
+    },
+    "STEP.Core/1.0.0": {
+      "type": "project",
+      "path": "../STEP.Core/STEP.Core.csproj",
+      "msbuildProject": "../STEP.Core/STEP.Core.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "STEP.Common >= 1.0.0",
+      "STEP.Core >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Ibrahim\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.DataAccess\\STEP.DataAccess.csproj",
+      "projectName": "STEP.DataAccess",
+      "projectPath": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.DataAccess\\STEP.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\Ibrahim\\.nuget\\packages\\",
+      "outputPath": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.DataAccess\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Ibrahim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.Common\\STEP.Common.csproj": {
+              "projectPath": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.Common\\STEP.Common.csproj"
+            },
+            "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.Core\\STEP.Core.csproj": {
+              "projectPath": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.Core\\STEP.Core.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
