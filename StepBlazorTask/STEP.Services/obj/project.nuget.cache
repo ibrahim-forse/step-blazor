@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hTR8Ev8ugyswpsMVDwN/J8YXV2o0+sDkgNq0O/Ozz6Sp8Rmc4UITr3tHHskq2c1+kYxr72rWjVaUH3KoCbEUhg==",
+  "success": true,
+  "projectFilePath": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.Services\\STEP.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ibrahim\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

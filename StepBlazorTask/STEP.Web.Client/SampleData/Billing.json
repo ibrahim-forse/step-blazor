@@ -1,0 +1,42 @@
+[
+  {
+    "InvoiceMonth": 2,
+    "InvoiceYear": 2021,
+    "TotalBilling": 1500,
+    "TotalApproved": 0,
+    "TotalPaid": 0,
+    "TotalBalance": 1500
+  },
+  {
+    "InvoiceMonth": 4,
+    "InvoiceYear": 2021,
+    "TotalBilling": 700,
+    "TotalApproved": 0,
+    "TotalPaid": 0,
+    "TotalBalance": 700
+  },
+  {
+    "InvoiceMonth": 8,
+    "InvoiceYear": 2021,
+    "TotalBilling": 5500,
+    "TotalApproved": 0,
+    "TotalPaid": 0,
+    "TotalBalance": 5500
+  },
+  {
+    "InvoiceMonth": 9,
+    "InvoiceYear": 2021,
+    "TotalBilling": 6800,
+    "TotalApproved": 0,
+    "TotalPaid": 0,
+    "TotalBalance": 6800
+  },
+  {
+    "InvoiceMonth": 10,
+    "InvoiceYear": 2021,
+    "TotalBilling": 1500,
+    "TotalApproved": 0,
+    "TotalPaid": 0,
+    "TotalBalance": 1500
+  }
+]
