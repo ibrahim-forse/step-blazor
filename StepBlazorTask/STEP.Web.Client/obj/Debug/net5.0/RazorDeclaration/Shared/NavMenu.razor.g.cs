@@ -82,6 +82,27 @@ using STEP.Web.Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using Blazorise;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using STEP.Web.Client.Pages.Approvals;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -89,21 +110,6 @@ using STEP.Web.Client.Shared;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 28 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\Shared\NavMenu.razor"
-       
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
-#line default
-#line hidden
-#nullable disable
     }
 }
 #pragma warning restore 1591

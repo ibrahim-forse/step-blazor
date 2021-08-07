@@ -82,6 +82,27 @@ using STEP.Web.Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using Blazorise;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using STEP.Web.Client.Pages.Approvals;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
     public partial class App : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
