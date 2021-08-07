@@ -1,7 +1,7 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Calibri";
 }
 
 a, .btn-link {
@@ -28,6 +28,37 @@ a, .btn-link {
 
 .validation-message {
     color: red;
+}
+
+.custom-nav-bar {
+    background: #2E2E5C;
+}
+
+.navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.nav-item-custom {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-right:20px;
+    margin-left:20px;
+}
+
+.navbar-brand {
+    margin-left: 80px;
+}
+
+.custom-title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #2E2E5C
+}
+
+.body-container {
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
 #blazor-error-ui {

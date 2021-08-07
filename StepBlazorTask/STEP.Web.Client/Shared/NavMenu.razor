@@ -1,37 +1,30 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">STEP.Web.Client</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+﻿<nav class="navbar navbar-expand-lg navbar-dark custom-nav-bar">
+    <a class="navbar-brand" href="#">[IMAGE] LOGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-</div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-    </ul>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item-custom">
+                <a class="nav-link" href="#"><span class="fas fa-home" style="padding-right:10px;"></span> Dashboard</a>
+            </li>
+            <li class="nav-item-custom">
+                <a class="nav-link" href="#"><span class="fas fa-file-alt" style="padding-right:10px;"></span> Invoices</a>
+            </li>
+            <li class="nav-item-custom">
+                <a class="nav-link" href="#"><span class="fas fa-folder-open" style="padding-right:10px;"></span> Billing</a>
+            </li>
+            <li class="nav-item-custom">
+                <a class="nav-link" href="#"><span class="fas fa-cog" style="padding-right:10px;"></span> Setup</a>
+            </li>
+            <li class="nav-item-custom">
+                <a class="nav-link" href="#"><span class="fas fa-user-circle" style="padding-right:10px;"></span> Profile</a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <button class="btn btn-primary" style="background: #FE808B;" type="submit"><span class="fas fa-bell"></span></button>
+            <button class="btn btn-primary" type="submit" style="background: #E5E9FA; margin-left: 15px; "><span style="color: #2E2E5C;" class="fas fa-sign-out-alt"></span></button>
+        </div>
+    </div>
+</nav>
