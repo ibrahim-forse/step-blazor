@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,11 +15,19 @@ namespace STEP.Services.DataMock
     public class MockInvoicesService : IInvoicesService
     {
         private readonly List<Invoice> _invoices;
-        public MockInvoicesService(string path)
+        public static async Task<MockInvoicesService> GetService(string url)
         {
-            StreamReader r = new StreamReader(path);
-            string jsonString = r.ReadToEnd();
-            _invoices = JsonConvert.DeserializeObject<List<Invoice>>(jsonString);
+            using var client = new HttpClient();
+
+            var jsonString = await client.GetStringAsync(url);
+
+            var invoices = JsonConvert.DeserializeObject<List<Invoice>>(jsonString);
+            return new MockInvoicesService(invoices);
+        }
+
+        private MockInvoicesService(List<Invoice> invoices)
+        {
+            _invoices = invoices;
         }
 
         private int getPagesNumber(int invoicesCount, int pageSize)

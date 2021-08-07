@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,11 +17,19 @@ namespace STEP.Services.DataMock
     {
         private readonly List<Bill> _billings;
 
-        public MockBillingService(string path)
+        public static async Task<MockBillingService> GetService(string url)
         {
-            StreamReader r = new StreamReader(path);
-            string jsonString = r.ReadToEnd();
-            _billings = JsonConvert.DeserializeObject<List<Bill>>(jsonString);
+            using var client = new HttpClient();
+
+            var jsonString = await client.GetStringAsync(url);
+
+            var billings = JsonConvert.DeserializeObject<List<Bill>>(jsonString);
+            return new MockBillingService(billings);
+        }
+
+        private MockBillingService(List<Bill> billings)
+        {
+            _billings = billings;
         }
 
         private int getPagesNumber(int invoicesCount, int pageSize)
@@ -35,7 +44,7 @@ namespace STEP.Services.DataMock
                 .OrderByDescending(b => b.InvoiceYear)
                 .ThenByDescending(b => b.InvoiceMonth)
                 .Skip(page * pageSize)
-                .Take(pages).ToList();
+                .Take(pageSize).ToList();
             return Tuple.Create(resultBills, pages);
         }
 
@@ -49,13 +58,13 @@ namespace STEP.Services.DataMock
                     .OrderByDescending(b => b.InvoiceYear)
                     .ThenByDescending(b => b.InvoiceMonth)
                     .Skip(page * pageSize)
-                    .Take(pages).ToList();
+                    .Take(pageSize).ToList();
             else
                 resultBills = _billings
                     .OrderBy(b => b.InvoiceYear)
                     .OrderBy(b => b.InvoiceMonth)
                     .Skip(page * pageSize)
-                    .Take(pages).ToList();
+                    .Take(pageSize).ToList();
 
             return Tuple.Create(resultBills, pages);
         }

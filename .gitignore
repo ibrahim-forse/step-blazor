@@ -363,5 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Exclude Sandbox Project
-StepBlazorTask\STEP.Sandbox\
 /StepBlazorTask/STEP.Sandbox
