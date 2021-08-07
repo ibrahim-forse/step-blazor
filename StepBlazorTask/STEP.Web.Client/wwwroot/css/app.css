@@ -2,6 +2,7 @@
 
 html, body {
     font-family: "Calibri";
+    background: #F5F5FB;
 }
 
 a, .btn-link {
@@ -60,6 +61,54 @@ a, .btn-link {
     margin-right: 50px;
     margin-left: 50px;
 }
+
+
+.cust-table-head {
+    background: #5E81F4;
+}
+
+.table-root-custom {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    text-align:left;
+}
+
+.clickable-header {
+    cursor: pointer;
+}
+
+table th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+table th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+table td:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+table td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+tr {
+    line-height: 40px;
+}
+
+td {
+    background: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+th {
+    border-style: none;
+    color: white;
+    font-weight: bold;
+}
+
 
 #blazor-error-ui {
     background: lightyellow;

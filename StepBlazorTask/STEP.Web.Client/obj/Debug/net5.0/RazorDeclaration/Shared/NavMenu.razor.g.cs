@@ -91,7 +91,7 @@ using Blazorise;
 #nullable disable
 #nullable restore
 #line 12 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
-using STEP.Web.Client.Pages.Approvals;
+using STEP.Web.Client.Pages.MyApprovals;
 
 #line default
 #line hidden
@@ -99,6 +99,41 @@ using STEP.Web.Client.Pages.Approvals;
 #nullable restore
 #line 13 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
 using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using STEP.Core.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using STEP.DataAccess.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using STEP.Common.Enums;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 17 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using STEP.Web.Client.Pages.Common;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 18 "H:\Code\step-blazor\StepBlazorTask\STEP.Web.Client\_Imports.razor"
+using STEP.Web.Client.Pages.Billing;
 
 #line default
 #line hidden

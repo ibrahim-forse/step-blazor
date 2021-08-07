@@ -14,5 +14,11 @@ namespace STEP.Core.Models
         public int TotalApproved { get; set; }
         public int TotalPaid { get; set; }
         public int TotalBalance { get; set; }
+        public string PresentationPeriod { get
+            {
+                DateTime date = new DateTime(InvoiceYear, InvoiceMonth, 1);
+                return date.ToString("MMMM yyyy");
+            } 
+        }
     }
 }

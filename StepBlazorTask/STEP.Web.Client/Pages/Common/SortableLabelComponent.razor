@@ -1,0 +1,36 @@
+﻿<a @onclick="@(async () => await InvokeSort())" @onclick:preventDefault class="clickable-header">
+    @if (isSort && IsActive)
+    {
+        if (isAscending)
+        {
+            @:@LabelName<span class="fas fa-sort-up"></span>
+        }
+        else
+        {
+            @:@LabelName<span class="fas fa-sort-down"></span>
+        }
+    }
+    else
+    {
+        @:@LabelName
+    }
+</a>
+
+@code {
+    [Parameter] public string LabelName { set; get; }
+    [Parameter] public SortTypes SortType { set; get; }
+    [Parameter] public InvoicesSortKeys SortKey { set; get; }
+    [Parameter] public bool IsActive { set; get; }
+
+    [Parameter] public Action<InvoicesSortKeys, SortTypes, int> SortMethod { get; set; }
+
+    bool isSort;
+    bool isAscending;
+
+    async Task InvokeSort()
+    {
+        isSort = true;
+        isAscending = (SortType == SortTypes.Ascending) ? true : false;
+        SortMethod?.Invoke(SortKey, SortType, 1);
+    }
+}

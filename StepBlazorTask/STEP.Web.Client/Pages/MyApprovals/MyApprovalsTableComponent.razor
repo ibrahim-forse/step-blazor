@@ -1,0 +1,113 @@
+﻿@using System.Net.Http.Json
+@using System.IO
+@using Newtonsoft.Json
+@using System.Globalization
+
+@inject IInvoicesService invoicesService
+
+<div class="row">
+    <div class="col-md-4">
+        <h3 class="custom-title">My Approvals</h3>
+    </div>
+    <div class="col-md-3 offset-5">
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    @if (!isSearch)
+                    {
+                        <button @onclick="@(async () => await searchForInvoiceClick())" class="input-group-text" style="background: #5E81F4;"><span class="fas fa-search" style="color:white;"></span></button>
+                    }
+                    else
+                    {
+                        <button @onclick="@(async () => await cancelSearchClick())" class="input-group-text" style="background: #5E81F4;"><span class="fas fa-times" style="color:white;"></span></button>
+                    }
+                </div>
+                <input @bind="searchText" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search for invoices ...">
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-root-custom">
+    <thead class="cust-table-head">
+        <tr>
+            <th scope="col"><SortableLabelComponent IsActive="(globalSortKey == InvoicesSortKeys.ByName)? true : false" LabelName="NAME" SortMethod="SortResultsClick" SortKey="InvoicesSortKeys.ByName" SortType="!isAscending?SortTypes.Ascending: SortTypes.Descending" /></th>
+            <th scope="col"><SortableLabelComponent IsActive="(globalSortKey == InvoicesSortKeys.ByDate)? true : false" LabelName="DATE" SortMethod="SortResultsClick" SortKey="InvoicesSortKeys.ByDate" SortType="!isAscending?SortTypes.Ascending: SortTypes.Descending" /></th>
+            <th scope="col"><SortableLabelComponent IsActive="(globalSortKey == InvoicesSortKeys.ByVendor)? true : false" LabelName="VENDOR" SortMethod="SortResultsClick" SortKey="InvoicesSortKeys.ByVendor" SortType="!isAscending?SortTypes.Ascending: SortTypes.Descending" /></th>
+            <th scope="col"><SortableLabelComponent IsActive="(globalSortKey == InvoicesSortKeys.ByAgency)? true : false" LabelName="AGENCY" SortMethod="SortResultsClick" SortKey="InvoicesSortKeys.ByAgency" SortType="!isAscending?SortTypes.Ascending: SortTypes.Descending" /></th>
+            <th scope="col"><SortableLabelComponent IsActive="(globalSortKey == InvoicesSortKeys.ByBU)? true : false" LabelName="B.U" SortMethod="SortResultsClick" SortKey="InvoicesSortKeys.ByBU" SortType="!isAscending?SortTypes.Ascending: SortTypes.Descending" /></th>
+            <th scope="col"><SortableLabelComponent IsActive="(globalSortKey == InvoicesSortKeys.ByAmount)? true : false" LabelName="AMOUNT" SortMethod="SortResultsClick" SortKey="InvoicesSortKeys.ByAmount" SortType="!isAscending?SortTypes.Ascending: SortTypes.Descending" /></th>
+            <th scope="col"><SortableLabelComponent IsActive="(globalSortKey == InvoicesSortKeys.ByStatus)? true : false" LabelName="STATUS" SortMethod="SortResultsClick" SortKey="InvoicesSortKeys.ByStatus" SortType="!isAscending?SortTypes.Ascending: SortTypes.Descending" /></th>
+            <th scope="col" style="text-align:center">DOWNLOAD</th>
+            <th scope="col" style="text-align:center">APPROVAL</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var element in Elements)
+        {
+            <tr>
+                <td style="font-weight: bold; color: #2E2E5E;">@element.InvoiceNumber</td>
+                <td>@element.InvoiceDate.ToString("MMM dd, yyyy")</td>
+                <td>Text Here</td>
+                <td>Text Here</td>
+                <td>@element.ClientBUName</td>
+                <td>@element.Amount.ToString("C2", new CultureInfo("en-US"))</td>
+                <td style="color: @element.InvoiceStatusColor">@element.InvoiceStatusName</td>
+                <td style="text-align:center"><button class="btn" style="background: #E8EEFF"><span style="color: #5E81F4" class="fas fa-download"></span></button></td>
+                <td style="text-align:center"><button class="btn" style="background: #E8EEFF"><span style="color: #5E81F4" class="fas fa-check"></span></button></td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<div class="row" style="margin-top: 10px">
+    <div class="offset-9 col-md-3">
+        <ul class="pagination">
+            @if (currentPage != 1)
+            {
+                <li class="page-item">
+                    <a id="page-first" class="page-link" @onclick="@(async () => await navigateToPage(1))" @onclick:preventDefault>&lt;&lt;</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item" style="pointer-events: none">
+                    <span id="page-first" class="page-link">&lt;&lt;</span>
+                </li>
+            }
+            @for (int count = startPage; count <= endPage; count++)
+            {
+                int tempPageNumber = count;
+                if (count == pageNumber)
+                {
+                    <li class="page-item active">
+                        <a id="page-@count" class="page-link" @onclick="@(async () => await navigateToPage(tempPageNumber))" @onclick:preventDefault>@count</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a id="page-@count" class="page-link" @onclick="@(async () => await navigateToPage(tempPageNumber))" @onclick:preventDefault>@count</a>
+                    </li>
+                }
+            }
+            @if (currentPage != totalPages)
+            {
+                <li class="page-item">
+                    <a id="page-last" class="page-link" @onclick="@(async () => await navigateToPage(totalPages))" @onclick:preventDefault>&gt;&gt;</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item" style="pointer-events: none">
+                    <span id="page-last" class="page-link">&gt;&gt;</span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+@code {
+
+}

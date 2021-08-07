@@ -386,6 +386,57 @@
         "runtime": {
           "lib/net5.0/System.Net.Http.Json.dll": {}
         }
+      },
+      "STEP.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/STEP.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.Common.dll": {}
+        }
+      },
+      "STEP.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/STEP.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.Core.dll": {}
+        }
+      },
+      "STEP.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "STEP.Common": "1.0.0",
+          "STEP.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/STEP.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.DataAccess.dll": {}
+        }
+      },
+      "STEP.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "STEP.DataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/STEP.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.Services.dll": {}
+        }
       }
     },
     "net5.0/browser-wasm": {
@@ -772,6 +823,57 @@
         },
         "runtime": {
           "lib/net5.0/System.Net.Http.Json.dll": {}
+        }
+      },
+      "STEP.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/STEP.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.Common.dll": {}
+        }
+      },
+      "STEP.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/STEP.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.Core.dll": {}
+        }
+      },
+      "STEP.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "STEP.Common": "1.0.0",
+          "STEP.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/STEP.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.DataAccess.dll": {}
+        }
+      },
+      "STEP.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "STEP.DataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/STEP.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STEP.Services.dll": {}
         }
       }
     }
@@ -1404,6 +1506,26 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "STEP.Common/1.0.0": {
+      "type": "project",
+      "path": "../STEP.Common/STEP.Common.csproj",
+      "msbuildProject": "../STEP.Common/STEP.Common.csproj"
+    },
+    "STEP.Core/1.0.0": {
+      "type": "project",
+      "path": "../STEP.Core/STEP.Core.csproj",
+      "msbuildProject": "../STEP.Core/STEP.Core.csproj"
+    },
+    "STEP.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../STEP.DataAccess/STEP.DataAccess.csproj",
+      "msbuildProject": "../STEP.DataAccess/STEP.DataAccess.csproj"
+    },
+    "STEP.Services/1.0.0": {
+      "type": "project",
+      "path": "../STEP.Services/STEP.Services.csproj",
+      "msbuildProject": "../STEP.Services/STEP.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1414,6 +1536,8 @@
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.7",
       "MudBlazor >= 5.1.0",
       "Newtonsoft.Json >= 13.0.1",
+      "STEP.DataAccess >= 1.0.0",
+      "STEP.Services >= 1.0.0",
       "System.Net.Http.Json >= 5.0.0"
     ]
   },
@@ -1443,7 +1567,14 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.DataAccess\\STEP.DataAccess.csproj": {
+              "projectPath": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.DataAccess\\STEP.DataAccess.csproj"
+            },
+            "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.Services\\STEP.Services.csproj": {
+              "projectPath": "H:\\Code\\step-blazor\\StepBlazorTask\\STEP.Services\\STEP.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
