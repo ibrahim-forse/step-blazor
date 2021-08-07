@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Approvals\**" />
+    <Content Remove="Pages\Approvals\**" />
+    <EmbeddedResource Remove="Pages\Approvals\**" />
+    <None Remove="Pages\Approvals\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazorise.Bootstrap" Version="0.9.4.2" />
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.4.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.7" />
@@ -15,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Approvals\" />
-    <Folder Include="SampleData\" />
+    <ProjectReference Include="..\STEP.DataAccess\STEP.DataAccess.csproj" />
+    <ProjectReference Include="..\STEP.Services\STEP.Services.csproj" />
   </ItemGroup>
 
 </Project>

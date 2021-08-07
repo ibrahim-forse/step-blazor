@@ -17,19 +17,15 @@ namespace STEP.Services.DataMock
     {
         private readonly List<Bill> _billings;
 
-        public static async Task<MockBillingService> GetService(string url)
-        {
-            using var client = new HttpClient();
-
-            var jsonString = await client.GetStringAsync(url);
-
-            var billings = JsonConvert.DeserializeObject<List<Bill>>(jsonString);
-            return new MockBillingService(billings);
-        }
-
         private MockBillingService(List<Bill> billings)
         {
             _billings = billings;
+        }
+
+        public static async Task<MockBillingService> GetService(string url)
+        {
+            HttpClient client = new HttpClient();
+            return new MockBillingService(JsonConvert.DeserializeObject<List<Bill>>(await client.GetStringAsync(url)));
         }
 
         private int getPagesNumber(int invoicesCount, int pageSize)

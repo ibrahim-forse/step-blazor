@@ -15,19 +15,15 @@ namespace STEP.Services.DataMock
     public class MockInvoicesService : IInvoicesService
     {
         private readonly List<Invoice> _invoices;
-        public static async Task<MockInvoicesService> GetService(string url)
-        {
-            using var client = new HttpClient();
-
-            var jsonString = await client.GetStringAsync(url);
-
-            var invoices = JsonConvert.DeserializeObject<List<Invoice>>(jsonString);
-            return new MockInvoicesService(invoices);
-        }
-
         private MockInvoicesService(List<Invoice> invoices)
         {
             _invoices = invoices;
+        }
+
+        public static async Task<MockInvoicesService> GetService(string url)
+        {
+            HttpClient client = new HttpClient();
+            return new MockInvoicesService(JsonConvert.DeserializeObject<List<Invoice>>(await client.GetStringAsync(url)));
         }
 
         private int getPagesNumber(int invoicesCount, int pageSize)
@@ -89,9 +85,9 @@ namespace STEP.Services.DataMock
                     break;
                 case InvoicesSortKeys.ByDate:
                     if (sortType == SortTypes.Ascending)
-                        query = query.OrderBy(i => i.CreatedDate);
+                        query = query.OrderBy(i => i.InvoiceDate);
                     else
-                        query = query.OrderByDescending(i => i.CreatedDate);
+                        query = query.OrderByDescending(i => i.InvoiceDate);
                     break;
                 case InvoicesSortKeys.ByName:
                     if (sortType == SortTypes.Ascending)
